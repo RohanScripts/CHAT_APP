@@ -4,3 +4,22 @@
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+body {
+  background: url("/public/bg.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+}
+
+.container {
+  width: 90vw;
+  height: 90vh;
+  border-radius: 15px;
+  background-color: rgba(17, 25, 40, 0.784);
+  backdrop-filter: blur(10px);
+  border: 1px solid black;
+}
