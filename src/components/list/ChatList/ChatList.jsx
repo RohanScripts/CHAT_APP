@@ -1,8 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ChatListCss.css";
 
 const ChatList = () => {
-  return <div className="chat-list">ChatList</div>;
+  const [showMinusIcon, setShowMinusIcon] = useState(false);
+
+  return (
+    <div className="chat-list">
+      <div className="search">
+        <div className="search-bar">
+          <img src="./search.png" alt="" />
+          <input type="text" placeholder="Search..." />
+        </div>
+        <img
+          src={showMinusIcon ? "./minus.png" : "./plus.png"}
+          onClick={() => setShowMinusIcon((prev) => !prev)}
+          className="plus"
+        />
+      </div>
+      <div className="items">
+        <img src="./avatar.png" alt="" />
+        <div className="text">
+          <span>Rohan Shelar</span>
+          <p>levo maro</p>
+        </div>
+      </div>
+      <div className="items">
+        <img src="./avatar.png" alt="" />
+        <div className="text">
+          <span>Rohan Shelar</span>
+          <p>levo maro</p>
+        </div>
+      </div>
+      <div className="items">
+        <img src="./avatar.png" alt="" />
+        <div className="text">
+          <span>Rohan Shelar</span>
+          <p>levo maro</p>
+        </div>
+      </div>
+      <div className="items">
+        <img src="./avatar.png" alt="" />
+        <div className="text">
+          <span>Rohan Shelar</span>
+          <p>levo maro</p>
+        </div>
+      </div>
+      <div className="items">
+        <img src="./avatar.png" alt="" />
+        <div className="text">
+          <span>Rohan Shelar</span>
+          <p>levo maro</p>
+        </div>
+      </div>
+      <div className="items">
+        <img src="./avatar.png" alt="" />
+        <div className="text">
+          <span>Rohan Shelar</span>
+          <p>levo maro</p>
+        </div>
+      </div>
+      <div className="items">
+        <img src="./avatar.png" alt="" />
+        <div className="text">
+          <span>Rohan Shelar</span>
+          <p>levo maro</p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ChatList;
