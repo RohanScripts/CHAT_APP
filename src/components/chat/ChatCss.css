@@ -1,3 +1,98 @@
 .chat {
   flex: 2;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  height: 100%;
+
+  .top {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+
+    .icons {
+      display: flex;
+      gap: 2vw;
+
+      img {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+      }
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 1vw;
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+
+        p {
+          font-weight: lighter;
+          font-size: smaller;
+          color: rgb(193, 193, 193);
+        }
+
+        span {
+          font-weight: bolder;
+        }
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid grey;
+    padding: 15px;
+    gap: 1vw;
+
+    img {
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .send-button {
+      padding: 5px;
+      color: white;
+      background-color: #5183fe;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      background-color: rgba(17, 25, 40, 0.8);
+      outline: none;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .icons {
+      display: flex;
+      gap: 1vw;
+
+      img {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+      }
+    }
+  }
 }

@@ -21,49 +21,49 @@ const ChatList = () => {
         <img src="./avatar.png" alt="" />
         <div className="text">
           <span>Rohan Shelar</span>
-          <p>levo maro</p>
+          <p>cold coco</p>
         </div>
       </div>
       <div className="items">
         <img src="./avatar.png" alt="" />
         <div className="text">
           <span>Rohan Shelar</span>
-          <p>levo maro</p>
+          <p>cold coco</p>
         </div>
       </div>
       <div className="items">
         <img src="./avatar.png" alt="" />
         <div className="text">
           <span>Rohan Shelar</span>
-          <p>levo maro</p>
+          <p>cold coco</p>
         </div>
       </div>
       <div className="items">
         <img src="./avatar.png" alt="" />
         <div className="text">
           <span>Rohan Shelar</span>
-          <p>levo maro</p>
+          <p>cold coco</p>
         </div>
       </div>
       <div className="items">
         <img src="./avatar.png" alt="" />
         <div className="text">
           <span>Rohan Shelar</span>
-          <p>levo maro</p>
+          <p>cold coco</p>
         </div>
       </div>
       <div className="items">
         <img src="./avatar.png" alt="" />
         <div className="text">
           <span>Rohan Shelar</span>
-          <p>levo maro</p>
+          <p>cold coco</p>
         </div>
       </div>
       <div className="items">
         <img src="./avatar.png" alt="" />
         <div className="text">
           <span>Rohan Shelar</span>
-          <p>levo maro</p>
+          <p>cold coco</p>
         </div>
       </div>
     </div>

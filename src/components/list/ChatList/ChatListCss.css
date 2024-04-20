@@ -42,9 +42,34 @@
   padding: 10px;
   border-bottom: 1px solid grey;
   cursor: pointer;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+
+    span {
+      font-weight: bolder;
+    }
+
+    p {
+      font-weight: lighter;
+      font-size: smaller;
+    }
+  }
 }
 
 .chat-list {
   flex: 1;
   overflow: scroll;
+}
+
+.chat-list::-webkit-scrollbar {
+  display: none;
 }
