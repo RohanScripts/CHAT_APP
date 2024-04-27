@@ -117,6 +117,46 @@
     flex-direction: column;
     gap: 5vh;
     font-size: smaller;
+
+    .message {
+      max-width: 70%;
+      display: flex;
+      gap: 1vw;
+
+      &.own {
+        align-self: flex-end;
+
+        .texts {
+          p {
+            background-color: #5183fe;
+          }
+        }
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+      .texts {
+        /* flex: 1; */
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+
+        p {
+          padding: 10px;
+          background-color: rgba(17, 25, 40, 0.8);
+          border-radius: 9px;
+        }
+
+        span {
+          font-size: xx-small;
+          padding-left: 10px;
+        }
+      }
+    }
   }
 
   .center::-webkit-scrollbar {
