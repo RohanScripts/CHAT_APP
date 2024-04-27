@@ -66,6 +66,10 @@ const Chat = () => {
         </div>
         <div className="message own">
           <div className="texts">
+            <img
+              src="https://images.unsplash.com/photo-1713955417511-f2bd115230a9?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
               magni sit culpa dicta mollitia itaque cum provident. Corrupti at
