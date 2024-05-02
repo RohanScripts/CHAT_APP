@@ -30,6 +30,7 @@
         background-color: #1f8ef1;
         color: white;
         font-weight: 600;
+        cursor: pointer;
       }
 
       label {

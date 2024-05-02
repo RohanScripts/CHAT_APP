@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ChatListCss.css";
+import AddUser from "../../add-user/addUser";
 
 const ChatList = () => {
   const [showMinusIcon, setShowMinusIcon] = useState(false);
@@ -66,6 +67,7 @@ const ChatList = () => {
           <p>cold coco</p>
         </div>
       </div>
+      <AddUser></AddUser>
     </div>
   );
 };
