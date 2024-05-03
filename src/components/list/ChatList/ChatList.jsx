@@ -67,7 +67,7 @@ const ChatList = () => {
           <p>cold coco</p>
         </div>
       </div>
-      <AddUser></AddUser>
+      {showMinusIcon ? <AddUser></AddUser> : ""}
     </div>
   );
 };
