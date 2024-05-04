@@ -19,7 +19,16 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    toast.success("aljd");
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+
+    const { username, email, password } = Object.fromEntries(formData);
+
+    console.log(username, email, password);
   };
 
   return (
@@ -35,7 +44,7 @@ const Login = () => {
       <div className="separator"></div>
       <div className="item">
         <h2>Create an account</h2>
-        <form>
+        <form onSubmit={handleRegister}>
           <label htmlFor="file">
             <img src={avatar.url ? avatar.url : "./avatar.png"} alt="" />
             Upload an image
@@ -43,7 +52,6 @@ const Login = () => {
           <input
             onChange={handleAvatar}
             type="file"
-            name=""
             id="file"
             style={{ display: "none" }}
           />
