@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./LoginCss.css";
 import { toast } from "react-toastify";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth as auth } from "../../library/firebase";
 
 const Login = () => {
   const [avatar, setAvatar] = useState({
@@ -21,14 +23,21 @@ const Login = () => {
     e.preventDefault();
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData);
 
-    console.log(username, email, password);
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+
+      toast.success("account created");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
   return (
@@ -55,9 +64,26 @@ const Login = () => {
             id="file"
             style={{ display: "none" }}
           />
-          <input type="text" name="username" placeholder="username..." id="" />
-          <input type="email" name="email" placeholder="email..." id="" />
-          <input type="passoword" name="password" placeholder="password" />
+          <input
+            type="text"
+            required
+            name="username"
+            placeholder="username..."
+            id=""
+          />
+          <input
+            type="email"
+            required
+            name="email"
+            placeholder="email..."
+            id=""
+          />
+          <input
+            type="passoword"
+            required
+            name="password"
+            placeholder="password"
+          />
           <button>Sign Up</button>
         </form>
       </div>
