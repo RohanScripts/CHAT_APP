@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import "./LoginCss.css";
 import { toast } from "react-toastify";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth as auth } from "../../library/firebase";
+import { auth, db } from "../../library/firebase";
+import { doc, setDoc } from "firebase/firestore";
+import upload from "../../library/upload";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
+
   const [avatar, setAvatar] = useState({
     file: null,
     url: "",
@@ -26,17 +30,39 @@ const Login = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
+    setLoading(true);
+
     const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData);
 
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-      toast.success("account created");
+      const imgURL = await upload(avatar.file);
+
+      await setDoc(doc(db, "users", response.user.uid), {
+        username,
+        email,
+        id: response.user.uid,
+        blocked: [],
+        avatar: imgURL,
+      });
+
+      await setDoc(doc(db, "userChats", response.user.uid), {
+        chats: [],
+      });
+
+      toast.success("Account Created");
     } catch (error) {
       console.log(error);
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,7 +73,7 @@ const Login = () => {
         <form onSubmit={handleLogin}>
           <input type="email" name="email" placeholder="email..." id="" />
           <input type="passoword" name="password" placeholder="password" />
-          <button>Log in</button>
+          <button disabled={loading}>{loading ? "loading" : "Log in"}</button>
         </form>
       </div>
       <div className="separator"></div>
@@ -84,7 +110,7 @@ const Login = () => {
             name="password"
             placeholder="password"
           />
-          <button>Sign Up</button>
+          <button disabled={loading}>{loading ? "loading" : "Sign up"}</button>
         </form>
       </div>
     </div>
