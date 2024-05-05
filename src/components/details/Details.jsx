@@ -1,7 +1,13 @@
 import React from "react";
 import "./DetailsCss.css";
+import { auth } from "../../library/firebase";
 
 const Details = () => {
+  const handleLogout = () => {
+    auth.signOut();
+    resetChat();
+  };
+
   return (
     <div className="dets">
       <div className="user">
@@ -87,7 +93,12 @@ const Details = () => {
             <img src="./arrowUp.png" alt="" />
           </div>
         </div>
-        <button className="block-button">Block User</button>
+        <div className="bottom-buttons">
+          <button className="block-button">Block User</button>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   );

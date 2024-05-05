@@ -6,21 +6,20 @@ import Login from "./components/login/Login";
 import Notification from "./components/notification/Notification";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./library/firebase";
-import { useUserStore } from "./redux-toolkit/slices/authSlice";
-import { useStore } from "react-redux";
-import {
-  currentUser,
-  isLoading,
-  fetchUserInfo,
-} from "./redux-toolkit/slices/authSlice";
+import { useUserStore } from "./library/userStore";
 
 const App = () => {
-  // const { currentUser, isLoading, fetchUserInfo } = useStore(useUserStore);
   // const user = false;
+
+  const { currentUser, isLoading, fetchUserInfo } = useUserStore();
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
-      fetchUserInfo(user.uid);
+      if (user) {
+        fetchUserInfo(user.uid); // Call fetchUserInfo when user is available
+      } else {
+        fetchUserInfo(null); // Reset state if no user
+      }
     });
 
     return () => {
@@ -28,7 +27,9 @@ const App = () => {
     };
   }, [fetchUserInfo]);
 
-  if (isLoading) return <div>loading...</div>;
+  console.log(currentUser);
+
+  if (isLoading) return <div className="loading">Loading...</div>;
 
   return (
     <div className="container">

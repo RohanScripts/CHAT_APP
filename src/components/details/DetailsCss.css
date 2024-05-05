@@ -76,6 +76,12 @@
   }
 }
 
+.bottom-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .block-button {
   background-color: rgba(230, 74, 105, 0.5);
   color: white;
@@ -87,5 +93,19 @@
 
   &:hover {
     background-color: rgba(230, 74, 105, 0.7);
+  }
+}
+
+.logout-button {
+  background-color: rgba(58, 34, 244, 0.5);
+  color: white;
+  border: none;
+  padding: 1vh 2vw;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.1s;
+
+  &:hover {
+    background-color: rgba(58, 34, 244, 0.8);
   }
 }
