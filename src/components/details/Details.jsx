@@ -1,10 +1,12 @@
 import React from "react";
 import "./DetailsCss.css";
 import { auth } from "../../library/firebase";
+import { toast } from "react-toastify";
 
 const Details = () => {
   const handleLogout = () => {
     auth.signOut();
+    toast.success("Logged Out Successfully");
     resetChat();
   };
 
