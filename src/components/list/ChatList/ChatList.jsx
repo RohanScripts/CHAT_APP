@@ -38,8 +38,6 @@ const ChatList = () => {
     };
   }, [currentUser.id]);
 
-  console.log(chats);
-
   return (
     <div className="chat-list">
       <div className="search">

@@ -9,8 +9,6 @@ import { auth } from "./library/firebase";
 import { useUserStore } from "./library/userStore";
 
 const App = () => {
-  // const user = false;
-
   const { currentUser, isLoading, fetchUserInfo } = useUserStore();
 
   useEffect(() => {
@@ -26,8 +24,6 @@ const App = () => {
       unSub();
     };
   }, [fetchUserInfo]);
-
-  console.log(currentUser);
 
   if (isLoading) return <div className="loading">Loading...</div>;
 

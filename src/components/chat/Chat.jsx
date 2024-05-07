@@ -6,8 +6,6 @@ const Chat = () => {
   const [openEmoji, setOpenEmoji] = useState(false);
   const [text, setText] = useState("");
 
-  console.log(text);
-
   const handelEmoji = (e) => {
     setText((prev) => prev + e.emoji);
   };
