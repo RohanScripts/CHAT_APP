@@ -52,15 +52,18 @@ const ChatList = () => {
         />
       </div>
 
-      {chats.map((eachChat) => {
+      {chats.map((eachChat) => (
         <div className="items" key={eachChat.chatId}>
-          <img src="./avatar.png" alt="" />
+          <img
+            src={eachChat.user.avatar ? eachChat.user.avatar : "./avatar.png"}
+            alt=""
+          />
           <div className="text">
-            <span>Rohan Shelar</span>
-            <p>cold coco</p>
+            <span>{eachChat.user.username}</span>
+            <p>{eachChat.lastMessage}</p>
           </div>
-        </div>;
-      })}
+        </div>
+      ))}
       {showMinusIcon ? <AddUser></AddUser> : ""}
     </div>
   );
