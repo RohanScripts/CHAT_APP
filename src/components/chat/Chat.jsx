@@ -49,68 +49,16 @@ const Chat = () => {
         </div>
       </div>
       <div className="center">
-        <div className="message">
-          <img src="./avatar.png" alt="" />
-          <div className="texts">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
-              magni sit culpa dicta mollitia itaque cum provident. Corrupti at
-              placeat, nisi, sit odio accusantium, ipsam nam atque facere amet
-              porro!
-            </p>
-            <span>2 min ago</span>
+        {chat?.message?.map((eachMessage) => (
+          <div className="message own" key={eachMessage?.createdAt}>
+            <div className="texts">
+              {eachMessage.img && <img src={eachMessage.img} alt="" />}
+              <p>{eachMessage.text}</p>
+              {/* <span>2 min ago</span> */}
+            </div>
           </div>
-        </div>
-        <div className="message own">
-          <div className="texts">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
-              magni sit culpa dicta mollitia itaque cum provident. Corrupti at
-              placeat, nisi, sit odio accusantium, ipsam nam atque facere amet
-              porro!
-            </p>
-            <span>2 min ago</span>
-          </div>
-        </div>
-        <div className="message">
-          <img src="./avatar.png" alt="" />
-          <div className="texts">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
-              magni sit culpa dicta mollitia itaque cum provident. Corrupti at
-              placeat, nisi, sit odio accusantium, ipsam nam atque facere amet
-              porro!
-            </p>
-            <span>2 min ago</span>
-          </div>
-        </div>
-        <div className="message own">
-          <div className="texts">
-            <img
-              src="https://images.unsplash.com/photo-1713955417511-f2bd115230a9?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
-              magni sit culpa dicta mollitia itaque cum provident. Corrupti at
-              placeat, nisi, sit odio accusantium, ipsam nam atque facere amet
-              porro!
-            </p>
-            <span>2 min ago</span>
-          </div>
-        </div>
-        <div className="message">
-          <img src="./avatar.png" alt="" />
-          <div className="texts">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
-              magni sit culpa dicta mollitia itaque cum provident. Corrupti at
-              placeat, nisi, sit odio accusantium, ipsam nam atque facere amet
-              porro!
-            </p>
-            <span>2 min ago</span>
-          </div>
-        </div>
+        ))}
+
         <div ref={endRef}></div>
       </div>
       <div className="bottom">
