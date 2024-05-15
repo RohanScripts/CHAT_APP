@@ -102,15 +102,15 @@ const Chat = () => {
         </div>
       </div>
       <div className="center">
-        {chat?.message?.map((eachMessage) => {
-          eachMessage && (
+        {chat?.messages?.map((eachMessage) => (
+          <div className="message own" key={eachMessage?.createdAt}>
             <div className="texts">
               {eachMessage.img && <img src={eachMessage.img} alt="" />}
               <p>{eachMessage.text}</p>
-              <span>{eachMessage.createdAt}</span>
+              {/* <span>{eachMessage.createdAt}</span> */}
             </div>
-          );
-        })}
+          </div>
+        ))}
 
         <div ref={endRef}></div>
       </div>

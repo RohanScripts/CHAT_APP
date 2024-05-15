@@ -35,8 +35,10 @@ const App = () => {
       {currentUser ? (
         <>
           <List></List>
-          {chatId ? <Chat></Chat> : ""}
-          {chatId && <Details></Details>}
+          <Chat></Chat>
+          <Details></Details>
+          {/* {chatId ? <Chat></Chat> : ""}
+          {chatId && <Details></Details>} */}
         </>
       ) : (
         <Login></Login>

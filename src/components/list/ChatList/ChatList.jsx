@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./ChatListCss.css";
 import AddUser from "../../add-user/addUser";
 import { useUserStore } from "../../../library/userStore";
-import { doc, getDoc, onSnapshot } from "firebase/firestore";
+import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../../library/firebase";
 import { useChatStore } from "../../../library/chatStore";
+import { update } from "firebase/database";
 
 const ChatList = () => {
   const [showMinusIcon, setShowMinusIcon] = useState(false);
@@ -42,7 +43,27 @@ const ChatList = () => {
   }, [currentUser.id]);
 
   const handleSelect = async (chat) => {
-    changeChat(chat.chatId, chat.user);
+    const userChats = chats.map((item) => {
+      const { user, ...rest } = item;
+      return rest;
+    });
+
+    const chatIndex = userChats.findIndex(
+      (item) => item.chatId === chat.chatId
+    );
+
+    userChats[chatIndex].isSeen = true;
+
+    const useChatRef = doc(db, "userchats", currentUser.id);
+
+    try {
+      await updateDoc(useChatRef, {
+        chats: userChats,
+      });
+      changeChat(chat.chatId, chat.user);
+    } catch (error) {
+      console.log(error + " : error in handleSelect");
+    }
   };
 
   return (
@@ -61,6 +82,9 @@ const ChatList = () => {
 
       {chats.map((eachChat) => (
         <div
+          style={{
+            backgroundColor: eachChat.isSeen ? "transparent" : "#7CB9E8",
+          }}
           className="items"
           key={eachChat.chatId}
           onClick={() => handleSelect(eachChat)}
